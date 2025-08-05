@@ -20,7 +20,7 @@ public partial class Unit : MonoBehaviour
     IEnumerator IMove(Vector3 _from, Vector3 _to)
     {
         float t = 0.0f;
-        float Durtaion = 0.5f;
+        float Durtaion = 0.35f;
         PlayAnimation("Ani_State", (int)UNIT_ANIMATION.Move);
         while (t < 1.0f)
         {

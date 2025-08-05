@@ -1,4 +1,4 @@
-Shader "Custom/CellShader"
+Shader "Custom/OutLineEmission"
 {
     Properties
     {
@@ -8,13 +8,13 @@ Shader "Custom/CellShader"
         _OutLine_Bold("Outline Bold", Range(0, 1)) = 0.1
         _OutLine_Color("Outline Color", Color) = (0,0,0,1)
 
-        _Brightness("Brightness", Range(0, 10)) = 10.0
+        _EmissionColor ("Emission Color", Color) = (1,1,1,1)
     }
     SubShader
     {
         Tags { "RenderType"="Opaque" "Queue"="Geometry" }
  
-        Cull front    //! 1Pass는 앞면을 그리지 않는다.
+        Cull front    
         Pass
         {
             CGPROGRAM
@@ -55,42 +55,47 @@ Shader "Custom/CellShader"
  
             ENDCG
         }
- 
-        Cull back    //! 2Pass는 뒷면을 그리지 않는다.
-        ZWrite On
-        Blend Off
-        CGPROGRAM
-        #pragma surface surf Lambert
 
-        sampler2D _MainTex;
-        fixed4 _Color;
-
-        struct Input
+        Pass
         {
-            float2 uv_MainTex;
-            float3 worldNormal;
-            float3 worldPos;
-        };
+            Cull back
+            CGPROGRAM
 
-        float _Brightness;
+            #pragma vertex _VertexFuc
+            #pragma fragment _FragmentFuc
 
-        void surf(Input IN, inout SurfaceOutput o)
-        {
-            fixed4 tex = tex2D(_MainTex, IN.uv_MainTex);
-            float3 normal = normalize(IN.worldNormal);
+            #include "UnityCG.cginc"
 
-            float3 lightDir = normalize(_WorldSpaceLightPos0.xyz);
+            struct ST_VertexInput
+            {
+                float4 vertex : POSITION;
+                float2 uv : TEXCOORD0;
+            };
 
-            float ndotl = dot(normal,lightDir);
+            struct ST_VertexOutput
+            {
+                float4 vertex : SV_POSITION;
+                float2 uv : TEXCOORD0;
+            };
 
-            float shade;
-            if(ndotl > 0.6) shade = 1.0;
-            else if(ndotl > 0.2) shade = 0.6;
-            else shade = 0.3;
+            sampler2D _MainTex;
+            float4 _EmissionColor;
 
-            o.Albedo = tex.rgb * _Color.rgb * shade * _Brightness;
-            o.Alpha = 1.0; // 불투명 처리
+            ST_VertexOutput _VertexFuc(ST_VertexInput stInput)
+            {
+                ST_VertexOutput stOutput;
+                stOutput.vertex = UnityObjectToClipPos(stInput.vertex);
+                stOutput.uv = stInput.uv;
+                return stOutput;
+            }
+
+            float4 _FragmentFuc(ST_VertexOutput i) : SV_Target
+            {
+                float4 mainTexColor = tex2D(_MainTex, i.uv);
+                mainTexColor.rgb += _EmissionColor.rgb;
+                return mainTexColor;
+            }
+            ENDCG
         }
-        ENDCG
     }
 }
