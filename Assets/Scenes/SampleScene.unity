@@ -1249,7 +1249,7 @@ Light:
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 2
+    m_Type: 0
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -1702,7 +1702,7 @@ GameObject:
   - component: {fileID: 1015085071}
   - component: {fileID: 1015085070}
   m_Layer: 0
-  m_Name: Particle System
+  m_Name: Sward_particle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1973,7 +1973,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 1, g: 1, b: 1, a: 1}
+      maxColor: {r: 0.956523, g: 1, b: 0.24056602, a: 0}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -2422,7 +2422,7 @@ ParticleSystem:
     donutRadius: 0.2
     m_Position: {x: 0, y: 0, z: 0}
     m_Rotation: {x: -90, y: 0, z: 0}
-    m_Scale: {x: 1, y: 1, z: 1}
+    m_Scale: {x: 1, y: 1.2, z: 1}
     placementMode: 0
     m_MeshMaterialIndex: 0
     m_MeshNormalOffset: 0
@@ -2501,7 +2501,7 @@ ParticleSystem:
     sphericalDirectionAmount: 0
     randomPositionAmount: 0
     radius:
-      value: 2.1
+      value: 1.22
       mode: 0
       spread: 0
       speed:
@@ -3457,7 +3457,7 @@ ParticleSystem:
     orbitalY:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 7.07
+      scalar: 7
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -5821,7 +5821,7 @@ ParticleSystem:
     widthOverTrail:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 0.24
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -5875,7 +5875,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 1, g: 1, b: 1, a: 1}
+      maxColor: {r: 1, g: 0.83129156, b: 0.5330188, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -6515,11 +6515,11 @@ Transform:
   m_GameObject: {fileID: 1015085069}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -20.3, y: 6.12, z: 14.5}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 2.53, z: -0.3}
+  m_LocalScale: {x: 1, y: 0.47, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1466470743}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1047668955
 GameObject:
@@ -11849,6 +11849,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1445830988}
   m_CullTransparentMesh: 1
+--- !u!4 &1466470743 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1526709980191555997, guid: 3f03c415314ed33479fcfdfc81845f6e, type: 3}
+  m_PrefabInstance: {fileID: 4653263377154125203}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1467904972
 GameObject:
   m_ObjectHideFlags: 0
@@ -13672,7 +13677,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5380599938751763105, guid: 543d8f2e5658512409e22eb8f33754f2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 88.6
+      value: 90.2
       objectReference: {fileID: 0}
     - target: {fileID: 5380599938751763105, guid: 543d8f2e5658512409e22eb8f33754f2, type: 3}
       propertyPath: m_LocalPosition.y
@@ -13680,7 +13685,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5380599938751763105, guid: 543d8f2e5658512409e22eb8f33754f2, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -1.4
       objectReference: {fileID: 0}
     - target: {fileID: 5380599938751763105, guid: 543d8f2e5658512409e22eb8f33754f2, type: 3}
       propertyPath: m_LocalRotation.w
@@ -14474,7 +14479,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 1526709980191555997, guid: 3f03c415314ed33479fcfdfc81845f6e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1015085072}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 6346444001290055331, guid: 3f03c415314ed33479fcfdfc81845f6e, type: 3}
       insertIndex: -1
@@ -14513,7 +14521,6 @@ SceneRoots:
   - {fileID: 1563722475}
   - {fileID: 394210199}
   - {fileID: 773830395}
-  - {fileID: 1015085072}
   - {fileID: 1230869251}
   - {fileID: 1480359254}
   - {fileID: 809079718}

@@ -5,7 +5,7 @@ Shader "Custom/CellShader"
         _MainTex("Main Texture", 2D) = "white" {}
         _Color("Main Tex Color", Color) = (1,1,1,1)
  
-        _OutLine_Bold("Outline Bold", Range(0, 1)) = 0.1
+        _OutLine_Bold("Outline Bold", Range(0, 5)) = 0.1
         _OutLine_Color("Outline Color", Color) = (0,0,0,1)
 
         _Brightness("Brightness", Range(0, 10)) = 10.0
@@ -40,8 +40,16 @@ Shader "Custom/CellShader"
                 {
                     ST_VertexOutput stOutput;
  
+                    // 모델의 로컬 노말 벡터방향으로 아웃라인 그리기
                     float3 fNormalized_Normal = normalize(stInput.normal);        //! 로컬 노말 벡터를 정규화 시킴
                     float3 fOutline_Position = stInput.vertex + fNormalized_Normal * (_OutLine_Bold * 0.1f); //! 버텍스 좌표에 노말 방향으로 더한다.
+
+
+                    ////카메라 방향으로 아웃라인 그리기
+                    //float3 worldPos = mul(unity_ObjectToWorld, stInput.vertex).xyz;
+                    //float3 viewDir = normalize(worldPos - _WorldSpaceCameraPos); //카메라 방향 벡터
+
+                    //float3 fOutline_Position = stInput.vertex + viewDir * (_OutLine_Bold * 0.1f); //! 버텍스 좌표에 노말 방향으로 더한다.
  
                     stOutput.vertex = UnityObjectToClipPos(fOutline_Position);    //! 노말 방향으로 더해진 버텍스 좌표를 카메라 클립 공간으로 변환 
                     return stOutput;
