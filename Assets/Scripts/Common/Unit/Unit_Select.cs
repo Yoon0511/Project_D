@@ -12,13 +12,14 @@ public class OutLineData
     public float ChangeBold;
 }
 
-public partial class Unit : MonoBehaviour
+public partial class MyUnit : MonoBehaviour
 {
     public GameObject Mesh;
     public List<OutLineData> ListOutLineData = new();
     public List<GameObject> ListChildTransform = new();
 
-    void MaterialInit()
+    bool IsSelecded = false;
+    protected void MaterialInit()
     {
         if(Mesh == null)
         {
@@ -49,10 +50,22 @@ public partial class Unit : MonoBehaviour
             }
         }
     }
-
     public void DoSelected()
     {
         ChangeOutLine();
+        IsSelecded = !IsSelecded;
+    }
+    public bool GetIsSelected()
+    {
+        return IsSelecded;
+    }
+    protected void ResetOutLine()
+    {
+        if (IsSelecded == true)
+        {
+            ChangeOutLine();
+            IsSelecded = false;
+        }
     }
 
     void ChangeOutLine()

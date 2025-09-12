@@ -9,3 +9,11 @@ public enum UNIT_ANIMATION
     Die,
     EnumEnd
 }
+
+public enum UNIT_TYPE
+{
+    None,
+    Friendly,
+    Enemy,
+    EnumEnd
+}

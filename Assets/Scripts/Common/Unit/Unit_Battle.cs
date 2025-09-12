@@ -2,13 +2,31 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public partial class Unit : MonoBehaviour
+public partial class MyUnit : MonoBehaviour
 {
     [SerializeField]
-    protected Unit Target;
+    protected MyUnit Target;
 
     bool IsAttackFinished = false;
-    IEnumerator IAttack(Vector3 _from, Vector3 _to)
+    bool IsOnAttack = false;
+    bool IsTargetSelected = false;
+
+    public virtual IEnumerator IAttackTurn()
+    {
+        Debug.Log("공격대상 선택");
+        yield return new WaitUntil(() => IsTargetSelected);
+        Debug.Log("공격대상 선택완료 공격");
+        yield return new WaitUntil(() => IsOnAttack);
+        Debug.Log("이동공격");
+        yield return IMoveToAttack(transform.position, Target.transform.position);
+    }
+
+    public void OnAttack()
+    {
+        IsOnAttack = true;
+    }
+
+    protected IEnumerator IMoveToAttack(Vector3 _from, Vector3 _to)
     {
         yield return IMove(_from, _to); // 타겟 위치로 이동
         yield return IDoAttack();       // 이동 완료시 공격
@@ -22,6 +40,7 @@ public partial class Unit : MonoBehaviour
         float t = 0.0f;
         float Durtaion = 0.35f;
         PlayAnimation("Ani_State", (int)UNIT_ANIMATION.Move);
+
         while (t < 1.0f)
         {
             t += Time.deltaTime / Durtaion;
@@ -33,15 +52,10 @@ public partial class Unit : MonoBehaviour
     IEnumerator IDoAttack()
     {
         IsAttackFinished = false;
-        BasicAttack();
-        // 공격애니메이션이 끝날때 까지 대기
-        yield return new WaitUntil(() => IsAttackFinished);
-    }
-
-    void BasicAttack()
-    {
         PlayAnimation("Ani_State", (int)UNIT_ANIMATION.BasicAttack);
         Target.Hit();
+        // 공격애니메이션이 끝날때 까지 대기
+        yield return new WaitUntil(() => IsAttackFinished);
     }
 
     protected void Hit()
@@ -73,8 +87,9 @@ public partial class Unit : MonoBehaviour
         transform.position = originalPosition; // 원래 위치로 되돌리기
     }
 
-    public void SetTarget(Unit _target)
+    public void SetTarget(MyUnit _target)
     {
+        IsTargetSelected = true;
         Target = _target;
     }
 }

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public partial class Unit : MonoBehaviour
+public partial class MyUnit : MonoBehaviour
 {
     public Animator Animator;
     protected void PlayAnimation(string _state, int _animation)
