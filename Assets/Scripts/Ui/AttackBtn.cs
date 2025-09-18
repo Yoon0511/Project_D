@@ -11,6 +11,6 @@ public class AttackBtn : MonoBehaviour
 
     public void OnCurrUnitUseUniqueSkill()
     {
-
+        Shared.GameManager.GetCurrUnit().OnUniqueSkillAttack();
     }
 }

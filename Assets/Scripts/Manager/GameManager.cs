@@ -49,7 +49,7 @@ public class GameManager : MonoBehaviour
     {
         if (VCam != null && Currunit != null)
         {
-            if(Currunit.GetUnitType() == UNIT_TYPE.Friendly)
+            if (Currunit.GetUnitType() == UNIT_TYPE.Friendly)
             {
                 VCam.Follow = Currunit.transform;
                 VCam.LookAt = Currunit.transform;

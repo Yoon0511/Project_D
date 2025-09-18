@@ -38,7 +38,7 @@ public partial class MyUnit : MonoBehaviour
                 {
                     OutLineData Data = new OutLineData();
                     Data.SkinnedMeshRenderer = ChildRenderer;
-                    ChildRenderer.material.SetFloat("_OutLine_Bold", 1.0f);
+                    ChildRenderer.material.SetFloat("_OutLine_Bold", 0.2f);
                     Data.OrgColor = ChildRenderer.material.GetColor("_OutLine_Color");
                     Data.ChangeColor = Color.red;
                     Data.OrgBold = ChildRenderer.material.GetFloat("_OutLine_Bold");

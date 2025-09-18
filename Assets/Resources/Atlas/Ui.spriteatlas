@@ -1,0 +1,82 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Ui
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings:
+    - serializedVersion: 3
+      m_BuildTarget: DefaultTexturePlatform
+      m_MaxTextureSize: 2048
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: -1
+      m_TextureCompression: 1
+      m_CompressionQuality: 50
+      m_CrunchedCompression: 0
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 0
+      m_IgnorePlatformSupport: 0
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 1
+      enableAlphaDilation: 0
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 102900000, guid: 846bd532fef085f4b8cc2fd5fc4dc403, type: 3}
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+    packedSpriteRenderDataKeys:
+    - d08625d11836368458d3bc93275b1f52: 21300000
+    - 157e0d03b01ab3c42aecea1a2909c362: 21300000
+    - 0c1872d497bd8af40bfb111a1817445d: 21300000
+    - 10a2d6087c89f1d4286d61f8a5069dc9: 21300000
+    - a1ae619aa142844429e0b9c66c98f27b: 21300000
+    - 934c325cae3cabf46a9d3585ede13530: 21300000
+    - 6e549a4e93fe8ea4d8d1cf5285e867f4: 21300000
+    - 79743b8e54f6ad842968e3d4ad0f5cf9: 21300000
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: d08625d11836368458d3bc93275b1f52, type: 3}
+  - {fileID: 21300000, guid: 157e0d03b01ab3c42aecea1a2909c362, type: 3}
+  - {fileID: 21300000, guid: 0c1872d497bd8af40bfb111a1817445d, type: 3}
+  - {fileID: 21300000, guid: 10a2d6087c89f1d4286d61f8a5069dc9, type: 3}
+  - {fileID: 21300000, guid: a1ae619aa142844429e0b9c66c98f27b, type: 3}
+  - {fileID: 21300000, guid: 934c325cae3cabf46a9d3585ede13530, type: 3}
+  - {fileID: 21300000, guid: 6e549a4e93fe8ea4d8d1cf5285e867f4, type: 3}
+  - {fileID: 21300000, guid: 79743b8e54f6ad842968e3d4ad0f5cf9, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - Saber_Side_Icon
+  - twilight-trill-skill-2_icon
+  - he-who-bears-the-world-must-burn-skill_icon
+  - excalibur-skill_icon
+  - kafka-character_icon
+  - Kafka_Side_Icon
+  - saber-character_icon
+  - Phainon_Side_Icon
+  m_RenderDataMap: {}
+  m_Tag: Ui
+  m_IsVariant: 0

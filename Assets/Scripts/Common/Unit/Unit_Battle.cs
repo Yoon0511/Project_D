@@ -26,6 +26,12 @@ public partial class MyUnit : MonoBehaviour
         IsOnAttack = true;
     }
 
+    //고유 스킬 공격 - 컷신 출력
+    public virtual void OnUniqueSkillAttack()
+    {
+        PD.Play();
+    }
+
     protected IEnumerator IMoveToAttack(Vector3 _from, Vector3 _to)
     {
         yield return IMove(_from, _to); // 타겟 위치로 이동
